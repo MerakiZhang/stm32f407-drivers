@@ -1,0 +1,28 @@
+# STM32CubeIDE 编译产物
+Debug/
+Release/
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.d
+*.trace
+
+# STM32CubeIDE 配置与缓存文件
+.settings/
+.project
+.cproject
+.launch
+.pydevproject
+.metadata/
+RemoteSystemsTempFiles/
+
+# Git 本身文件（避免递归忽略）
+!.gitignore
+
+# 其他可选忽略（根据自身需求添加）
+*.bak
+*.tmp
+*.user
