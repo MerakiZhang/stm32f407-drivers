@@ -25,6 +25,7 @@
 #include "key.h"
 #include "led.h"
 #include "beep.h"
+#include "exitCallback.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,29 +98,29 @@ int main(void)
   while (1)
   {
 
-	  KEYS pressedKey = ScanPressedKey(KEY_WAIT_ALWAYS);
-
-	  switch(pressedKey)
-	  {
-	  	  case KEY_UP:
-	  		  LED0_Toggle();
-	  		  break;
-
-	  	  case KEY_0:
-	  		  LED1_Toggle();
-	  		  break;
-
-	  	  case KEY_1:
-	  		  LED0_OFF();
-	  		  LED1_OFF();
-	  		  break;
-
-	  	  case KEY_2:
-	  		  BEEP_Toggle();
-	  		  break;
-	  }
-
-	  HAL_Delay(200);
+//	  KEYS pressedKey = ScanPressedKey(KEY_WAIT_ALWAYS);
+//
+//	  switch(pressedKey)
+//	  {
+//	  	  case KEY_UP:
+//	  		  LED0_Toggle();
+//	  		  break;
+//
+//	  	  case KEY_0:
+//	  		  LED1_Toggle();
+//	  		  break;
+//
+//	  	  case KEY_1:
+//	  		  LED0_OFF();
+//	  		  LED1_OFF();
+//	  		  break;
+//
+//	  	  case KEY_2:
+//	  		  BEEP_Toggle();
+//	  		  break;
+//	  }
+//
+//	  HAL_Delay(200);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

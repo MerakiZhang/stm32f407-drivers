@@ -59,10 +59,13 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define KEY_2_Pin GPIO_PIN_2
 #define KEY_2_GPIO_Port GPIOE
+#define KEY_2_EXTI_IRQn EXTI2_IRQn
 #define KEY_1_Pin GPIO_PIN_3
 #define KEY_1_GPIO_Port GPIOE
+#define KEY_1_EXTI_IRQn EXTI3_IRQn
 #define KEY_0_Pin GPIO_PIN_4
 #define KEY_0_GPIO_Port GPIOE
+#define KEY_0_EXTI_IRQn EXTI4_IRQn
 #define BEEP_Pin GPIO_PIN_8
 #define BEEP_GPIO_Port GPIOF
 #define LED0_Pin GPIO_PIN_9
@@ -71,6 +74,7 @@ void Error_Handler(void);
 #define LED1_GPIO_Port GPIOF
 #define KEY_UP_Pin GPIO_PIN_0
 #define KEY_UP_GPIO_Port GPIOA
+#define KEY_UP_EXTI_IRQn EXTI0_IRQn
 
 /* USER CODE BEGIN Private defines */
 
