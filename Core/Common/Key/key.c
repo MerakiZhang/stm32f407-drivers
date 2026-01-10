@@ -18,11 +18,11 @@ KEYS ScanPressedKey(uint32_t timeout)
 	{
 #ifdef KEY_UP_Pin
 	   keyState = HAL_GPIO_ReadPin(KEY_UP_GPIO_Port, KEY_UP_Pin);
-	   if (keyState == GPIO_PIN_RESET)
+	   if (keyState == GPIO_PIN_SET)
 	   {
 		   HAL_Delay(debounceDelay);
 		   keyState = HAL_GPIO_ReadPin(KEY_UP_GPIO_Port, KEY_UP_Pin);
-		   if (keyState == GPIO_PIN_RESET)
+		   if (keyState == GPIO_PIN_SET)
 			   return KEY_UP;
 	   }
 #endif
