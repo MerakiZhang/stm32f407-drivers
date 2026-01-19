@@ -19,13 +19,17 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "gpio.h"
+#include "fsmc.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "key.h"
 #include "led.h"
 #include "beep.h"
-#include "exitCallback.h"
+//#include "exitCallback.h"
+#include "tftlcd.h"
+#include "picture.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,7 +93,23 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_FSMC_Init();
   /* USER CODE BEGIN 2 */
+  uint16_t color=0;
+  TFTLCD_Init();			//LCD初始化
+
+  FRONT_COLOR=BLACK;
+  LCD_ShowString(10,10,tftlcd_data.width,tftlcd_data.height,12,"Hello World!");
+  LCD_ShowString(10,30,tftlcd_data.width,tftlcd_data.height,16,"Hello World!");
+  LCD_ShowString(10,50,tftlcd_data.width,tftlcd_data.height,24,"Hello World!");
+  LCD_ShowString(10,120,tftlcd_data.width,tftlcd_data.height,24,"Meraki Zhang");
+
+  LCD_Fill(10,150,60,180,GRAY);
+  color=LCD_ReadPoint(20,160);
+  LCD_Fill(100,150,150,180,color);
+  printf("color=%x\r\n",color);
+
+  LCD_ShowPicture(20,220,200,112,(uint8_t *)gImage_picture);
 
   /* USER CODE END 2 */
 
@@ -98,29 +118,29 @@ int main(void)
   while (1)
   {
 
-//	  KEYS pressedKey = ScanPressedKey(KEY_WAIT_ALWAYS);
-//
-//	  switch(pressedKey)
-//	  {
-//	  	  case KEY_UP:
-//	  		  LED0_Toggle();
-//	  		  break;
-//
-//	  	  case KEY_0:
-//	  		  LED1_Toggle();
-//	  		  break;
-//
-//	  	  case KEY_1:
-//	  		  LED0_OFF();
-//	  		  LED1_OFF();
-//	  		  break;
-//
-//	  	  case KEY_2:
-//	  		  BEEP_Toggle();
-//	  		  break;
-//	  }
-//
-//	  HAL_Delay(200);
+	  KEYS pressedKey = ScanPressedKey(KEY_WAIT_ALWAYS);
+
+	  switch(pressedKey)
+	  {
+	  	  case KEY_UP:
+	  		  LED0_Toggle();
+	  		  break;
+
+	  	  case KEY_0:
+	  		  LED1_Toggle();
+	  		  break;
+
+	  	  case KEY_1:
+	  		  LED0_OFF();
+	  		  LED1_OFF();
+	  		  break;
+
+	  	  case KEY_2:
+	  		  BEEP_Toggle();
+	  		  break;
+	  }
+
+	  HAL_Delay(200);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
